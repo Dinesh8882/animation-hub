@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Animation Hub</title>
+</head>
+
+<div id="minicircle"></div>
+
+<body>
+    <div id="main">
+
+        <div id="hero">
+            <div id="nav">
+                <a href="https://github.com/Dinesh8882">Web devloper</a>
+                <h4>MENU +</h4>
+            </div>
+
+            <div id="heading">
+                <h1 id="firsth1">dinesh</h1>
+                <div class="blocktext">
+                    <h1 id="secondh1">Mahor</h1>
+                    <h5>based in toronto</h5>
+                </div>
+            </div>
+
+            <div id="chhotiheading">
+                <h5 id="first">aavailable for freelance</h5>
+                <h5 id="first1">work from may 23.</h5>
+            </div>
+
+            <div id="herofooter">
+                <a href="https://github.com/Dinesh8882">previously worked at yml</a>
+                <a href="https://github.com/Dinesh8882">protopie ambassador</a>
+                <div id="iconset">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="second">
+            <div class="elem">
+                <img src="./img-1.webp" alt="">
+                <h1>HTML , CSS</h1>
+                <h5>2024</h5>
+            </div>
+
+            <div class="elem">
+                <img src="./img-2.webp" alt="">
+                <h1>JAVA script </h1>
+                <h5>2024</h5>
+            </div>
+
+            <div class="elem elemlast">
+                <img src="./img-3.webp" alt="">
+                <h1>languages.</h1>
+                <h5>2024</h5>
+            </div>
+
+
+        </div>
+
+        <div id="about">
+            <img src="./about.webp" alt="">
+            <div id="textabout">
+                <h5>(about me)</h5>
+                <p>I'm Fronted developer, i have worked with some projects and make them resposive. I'm still learning and
+			will keep on learning everyday. I have 1 year experience about HTML,CSS5 
+			javascript, GSAP animation , C and C++ , MySQL...</p>
+                <a href="https://github.com/Dinesh8882">Let's talk</a>
+            </div>
+        </div>
+
+        <div id="subscribe">
+            <h5>(forgot to mention)</h5>
+            <h3>subscribe to my youtube channle</h3>
+        </div>
+
+        <div id="footer">
+            <div id="footerleft">
+                <h5>2023 &copy;</h5>
+                <h5>0:05 AM EST</h5>
+            </div>
+            <div id="footerright">
+                <a href="https://github.com/Dinesh8882">dribbble</a>
+                <a href="https://github.com/Dinesh8882">instagram</a>
+                <a href="https://github.com/Dinesh8882">linkedin</a>
+                <a href="https://github.com/Dinesh8882">github</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"
+        integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+
+    <script>
+
+
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('#main'),
+            smooth: true
+        });
+
+
+        let circle = document.querySelector("#minicircle")
+        var timeout;
+
+        function circlesale() {
+            var xscale = 1;
+            var yscale = 1;
+
+            var xprev = 0;
+            var yprev = 0;
+            window.addEventListener("mousemove", function (dets) {
+                clearTimeout(timeout);
+                xscale = gsap.utils.clamp(.8, 1.2, dets.clientX - xprev)
+                yscale = gsap.utils.clamp(.8, 1.2, dets.clientY - yprev)
+
+                xprev = dets.clientX;
+                yprev = dets.clientY;
+                circl(xscale, yscale)
+                setTimeout(function () {
+                    timeout = document.querySelector("#minicircle").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1,1 )`;
+
+                }, 100)
+            });
+        }
+
+
+        function circl(xscale, yscale) {
+            window.addEventListener("mousemove", (e) => {
+                document.querySelector("#minicircle").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${xscale},${yscale})`;
+            })
+        }
+        circlesale();
+        circl();
+
+
+        let timeline1 = gsap.timeline()
+        timeline1.
+            from("#nav a", {
+                y: -20,
+                opacity: 0,
+                duration: 0.2
+            })
+            .from("#nav h4", {
+                y: -20,
+                opacity: 0,
+                duration: 0.3
+            })
+            .from("#heading #firsth1", {
+                y: -20,
+                opacity: 0,
+                duration: 0.3
+            })
+            .from("#heading .blocktext h1", {
+                y: -20,
+                opacity: 0,
+                duration: 0.3
+            })
+            .from(".blocktext h5", {
+                y: -20,
+                opacity: 0,
+                duration: 0.3
+            })
+            .from("#chhotiheading #first", {
+                y: -20,
+                opacity: 0,
+                duration: 0.3
+            })
+            .from("#chhotiheading #first1", {
+                y: -20,
+                opacity: 0,
+                duration: 0.3
+            })
+            .from("#herofooter a", {
+                y: -20,
+                opacity: 0,
+                duration: 0.3,
+                stagger: 0.3
+            })
+
+
+        let img = document.querySelectorAll(".elem img")
+        let elem = document.querySelectorAll(".elem")
+        let heading = document.querySelectorAll(".elem h1")
+        for (let i = 0; i < elem.length; i++) {
+            var rotate = 0;
+            var diffrot = 0;
+            elem[i].addEventListener("mousemove", function (e) {
+
+                var diff = e.clientY - elem[i].getBoundingClientRect().top[i];
+                diffrot = e.clientX - rotate;
+                rotate = e.clientX;
+
+                gsap.to(img[i], {
+                    opacity: 1,
+                    ease: Power1,
+                    scale: 1.2,
+                    top: diff,
+                    left: e.clientX,
+                    rotate: gsap.utils.clamp(-20, 20, diffrot * .5)
+
+                })
+                gsap.to(heading[i], {
+                    x: 20,
+                    opacity: .4
+                })
+            })
+        }
+
+
+        for (let i = 0; i < elem.length; i++) {
+
+            elem[i].addEventListener("mouseleave", function (e) {
+
+
+                gsap.to(img[i], {
+                    opacity: 0,
+                    // ease: Power1,                   
+                })
+                gsap.to(heading[i], {
+                    x: 0,
+                    opacity: 1
+                })
+            })
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
