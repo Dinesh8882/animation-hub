@@ -8,7 +8,6 @@
     <title>Animation Hub</title>
 </head>
 
-<div id="minicircle"></div>
 
 <body>
     <div id="main">
@@ -99,49 +98,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
 
     <script>
 
 
-        const scroll = new LocomotiveScroll({
-            el: document.querySelector('#main'),
-            smooth: true
-        });
-
-
-        let circle = document.querySelector("#minicircle")
-        var timeout;
-
-        function circlesale() {
-            var xscale = 1;
-            var yscale = 1;
-
-            var xprev = 0;
-            var yprev = 0;
-            window.addEventListener("mousemove", function (dets) {
-                clearTimeout(timeout);
-                xscale = gsap.utils.clamp(.8, 1.2, dets.clientX - xprev)
-                yscale = gsap.utils.clamp(.8, 1.2, dets.clientY - yprev)
-
-                xprev = dets.clientX;
-                yprev = dets.clientY;
-                circl(xscale, yscale)
-                setTimeout(function () {
-                    timeout = document.querySelector("#minicircle").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1,1 )`;
-
-                }, 100)
-            });
-        }
-
-
-        function circl(xscale, yscale) {
-            window.addEventListener("mousemove", (e) => {
-                document.querySelector("#minicircle").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${xscale},${yscale})`;
-            })
-        }
-        circlesale();
-        circl();
+       
 
 
         let timeline1 = gsap.timeline()
